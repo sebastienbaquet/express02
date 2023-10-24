@@ -8,3 +8,11 @@ describe("GET /api/movies", () => {
         expect(response.status).toEqual(200);
     });
   });
+
+  describe("GET /api/movies/:id", () => {
+    it("should return all movies", async () => {
+        const response = await request(app).get('/api/movies/');
+        expect(response.headers["content-type"]).toMatch(/json/);
+        expect(response.status).toEqual(200);
+    });
+  });
